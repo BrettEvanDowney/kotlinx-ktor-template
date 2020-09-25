@@ -1,0 +1,56 @@
+$border-type: solid black 0.075em;
+
+.inner-footer {
+  position: relative;
+  transition: .6s;
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+  border-top: $border-type;
+
+
+  .inner-footer-wrapper {
+    padding: 1em;
+
+
+    i {
+      pointer-events: all;
+
+      &:hover {
+        transform: scale(1.2);
+
+      }
+    }
+
+
+    // left content
+    &.inner-footer-left {
+      float: left;
+
+      &.last-of-type {
+        border-right: $border-type;
+      }
+    }
+
+    // middle content
+    &.inner-footer-middle {
+      float: left;
+      padding-top: 3em;
+
+      p {
+        text-align: right;
+        position: absolute;
+        bottom: -5.8em;
+      }
+    }
+
+    // right content
+    &.inner-footer-right {
+      float: right;
+
+      &:last-of-type {
+        border-left: $border-type;
+      }
+    }
+  }
+}

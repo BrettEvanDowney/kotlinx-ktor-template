@@ -1,0 +1,65 @@
+@import "../color/colors";
+
+
+/* Featurettes
+------------------------- */
+
+.featurette {
+  word-wrap: anywhere;
+  color: $base-dark-dark;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  background: white;
+  border-radius: 0.5em;
+  transition: 1.2s;
+
+  &:hover {
+    transform: scale(1.07);
+  }
+
+
+  .featurette-heading {
+   margin-top: 0.35em;
+    transition: 1.2s;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    .text-muted:hover {
+      color: white;
+    }
+  }
+
+  .featurette-image {
+    height: 350px;
+    transition: 2.2s;
+    transform: scale(0.75);
+    background: url(/static/background.jpg) no-repeat;
+    background-size: cover;
+
+    &:hover {
+      transform: scale(0.8);
+    }
+  }
+
+  p {
+    transition: 1.2s;
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
+
+.featurette-divider {
+  margin: 2em 0; /* Space out the Bootstrap <hr> more */
+}
+
+// Responsive CSS
+@media (min-width: 40em) {
+  .featurette-heading {
+    font-size: 50px;
+  }
+}

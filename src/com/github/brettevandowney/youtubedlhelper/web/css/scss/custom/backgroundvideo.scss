@@ -1,0 +1,13 @@
+@import "../color/colors";
+
+.background-video {
+  @include color($brightness: "light", $type-in: "border-color");
+  border-bottom: .125em outset rgba(0, 0, 0, 0.78);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+  top: 50%;
+  transform: translate(0%, -50%);
+  left: 0;
+}

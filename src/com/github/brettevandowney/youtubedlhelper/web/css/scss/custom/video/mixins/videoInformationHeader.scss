@@ -1,0 +1,66 @@
+
+
+
+@mixin videoInformationHeader {
+  width: 100%;
+  padding-left: .5em;
+  text-align: left;
+  margin-top: .5em;
+
+  span {
+    font-size: .85em;
+  }
+
+  .video-column-header-img {
+    transition: .6s;
+    width: 4%;
+    margin-right: 0.25em;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+
+  .video-column-heading {
+    transition: 1.2s;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    .text-muted:hover {
+      color: white;
+    }
+  }
+
+  .video-column-header-dl {
+    font-size: 50%;
+  }
+
+  .video-column-bookmark {
+    float: right;
+    margin-right: .5em;
+    transition: .6s;
+
+    i.video-column-bookmark-clicked {
+      color: yellow;
+    }
+
+
+    & i:hover {
+      transform: scale(1.1);
+    }
+
+    & i:target {
+      color: white;
+    }
+
+    & i:active {
+      color: yellow;
+    }
+  }
+}

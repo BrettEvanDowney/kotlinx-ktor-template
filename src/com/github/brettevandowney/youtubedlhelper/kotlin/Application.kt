@@ -1,6 +1,9 @@
 package com.github.brettevandowney.youtubedlhelper.kotlin
 
-import com.github.brettevandowney.youtubedlhelper.kotlin.web.MainTemplate
+import com.github.brettevandowney.youtubedlhelper.kotlin.web.MainPage
+import com.github.brettevandowney.youtubedlhelper.kotlin.web.pages.pages.DownloadTemplatePage
+import com.github.brettevandowney.youtubedlhelper.kotlin.web.theme.DefaultTheme
+import com.github.brettevandowney.youtubedlhelper.kotlin.web.theme.Theme
 import io.ktor.application.*
 import io.ktor.client.*
 import io.ktor.client.engine.apache.*
@@ -9,11 +12,20 @@ import io.ktor.features.*
 import io.ktor.gson.*
 import io.ktor.html.*
 import io.ktor.http.content.*
-import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.sessions.*
-import kotlinx.html.*
+import kotlinx.html.body
+import kotlinx.html.h1
+import kotlinx.html.li
+import kotlinx.html.ul
 
+
+/**
+ * Starts the template. This template uses server-side content
+ * rendering by joining various prebuilt modules. The related
+ * client side TypeScript and SCSS can be found within the web folder
+ * with under similar named template files.
+ */
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 @Suppress("unused") // Referenced in application.conf
@@ -21,7 +33,7 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 fun Application.module(testing: Boolean = false) {
     install(Sessions) {
         cookie<DlSession>("MY_SESSION") {
-            cookie.extensions["SameSit e"] = "lax"
+            cookie.extensions["SameSite"] = "lax"
         }
     }
 
@@ -39,38 +51,27 @@ fun Application.module(testing: Boolean = false) {
     }
 
     routing {
-        // Static feature. Try to access `/static/ktor_logo.svg`
+        // includes static resources
         static("/static") {
             resources("static")
         }
 
+        // homepage
         get("/") {
-
-            call.respondHtmlTemplate(MainTemplate()) {
-                columns {
-                }
-            }
+            call.respondHtmlTemplate(MainPage()) {}
         }
 
-        get("/html-dsl") {
-            call.respondHtml {
-                head {
-                    link(rel = "stylesheet", href = "/static/styles/csscompiled/main.css")
-                }
-                body {
-                    h1 { +"Brett Downey's Website" }
-                    ul {
-                        for (n in 1..10) {
-                            li { +"$n" }
-                        }
-                    }
-                }
-            }
+        // /downloads page
+        get("/downloads") {
+            val theme = Theme(DefaultTheme().themes)
+            call.respondHtmlTemplate(MainPage(theme = theme, page = DownloadTemplatePage(theme))) {}
         }
 
+        // session template
         get("/session/increment") {
             val session = call.sessions.get<DlSession>() ?: DlSession()
             session.count++
+
             call.sessions.set(session)
             call.respondHtml {
 
@@ -84,12 +85,11 @@ fun Application.module(testing: Boolean = false) {
                 }
             }
         }
-
-        get("/json/gson") {
-            call.respond(mapOf("hello" to "world"))
-        }
     }
 }
 
-data class IndexData(val items: List<Int>)
+/**
+ * The data class used for a client's
+ * session.
+ */
 data class DlSession(var count: Int = 0)

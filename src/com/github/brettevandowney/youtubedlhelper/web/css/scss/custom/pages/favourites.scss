@@ -1,0 +1,43 @@
+
+
+.favourites-page {
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 0.5em;
+
+  h1 {
+    padding: .5em;
+    border-bottom: solid rgba(32, 33, 36, 0.51) 1px;
+    border-radius: 0.5em;
+
+    // bookmark image
+    span {
+      padding-right: .25em;
+    }
+  }
+
+  .favourite-items {
+
+    .video-column-wrapper.flexbox {
+      width: 100%;
+      justify-content: space-evenly;
+
+      .video-column-flexbox-item {
+        flex-grow: 0; // make all items equal size and not expand
+        padding-left: .75em;
+        padding-right: .75em;
+        width: 45vw;
+
+        .row {
+          margin-right: -2px;
+          margin-left: -2px;
+        }
+      }
+    }
+
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}

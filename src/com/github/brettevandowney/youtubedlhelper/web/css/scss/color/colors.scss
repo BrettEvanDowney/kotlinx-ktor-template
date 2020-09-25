@@ -1,0 +1,31 @@
+$base-dark-dark: black;
+$base-dark-light: dimgray;
+$base-light-dark: darkgray;
+$base-light-light: white;
+$base-red-dark: #8b1a00;
+$base-red-light: #af0008;
+$base-black-dark: black;
+$base-black-light: #161616;
+$dark-theme: 'dark-theme';
+$light-theme: 'light-theme';
+$background-gradient-header: radial-gradient(circle, rgba(22, 22, 22, 0.68) 0%, rgba(77, 79, 79, 0.59) 100%);
+$background-gradient-header-inner: rgba(22, 22, 22, 0.86) 100%;
+
+$themes: ("dark-theme": ("dark-theme-light": $base-dark-light, "dark-theme-dark": $base-dark-dark),
+        "light-theme": ("light-theme-light": $base-light-light, "dark-light-dark": $base-light-dark),
+        "red-theme": ("red-theme-light": $base-red-light, "dark-red-dark": $base-red-dark),
+        "black-theme": ("black-theme-light": $base-black-light, "black-red-dark": $base-black-dark));
+
+/* Applies $dark colouring to all child elements and the current element
+-------------------------------------------------- */
+@mixin color($brightness: "dark", $type-in: "color") {
+  @each $theme in map-keys($themes) {
+    &.#{$theme} {
+      #{$type-in}: map-get(map-get($themes, $theme), "#{$theme}-#{$brightness}");
+    }
+
+    .#{$theme} {
+      #{$type-in}: map-get(map-get($themes, $theme), "#{$theme}-#{$brightness}");
+    }
+  }
+}
