@@ -13,7 +13,7 @@ apply plugin: 'application'
 
 group 'com.github.brettevandowney.youtubedlhelper'
 version '0.0.1'
-mainClassName = "io.ktor.server.netty.EngineMain"
+mainClassName = "com.github.brettevandowney.youtubedlhelper.kotlin.ApplicationKt"
 
 sourceSets {
     main.kotlin.srcDirs = main.java.srcDirs = ['src']
@@ -42,4 +42,8 @@ dependencies {
     implementation "io.ktor:ktor-client-apache:$ktor_version"
     implementation "io.ktor:ktor-client-auth-jvm:$ktor_version"
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
+}
+
+tasks.register("stage") {
+    dependsOn installDist
 }

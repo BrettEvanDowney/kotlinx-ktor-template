@@ -1,1 +1,1 @@
-web:    java -jar target/helloworld.jar
+web: build/install/youtube-dl-helper/bin/youtube-dl-helper

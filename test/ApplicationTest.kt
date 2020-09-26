@@ -2,8 +2,9 @@ package com.github.brettevandowney.youtubedlhelper
 
 import com.github.brettevandowney.youtubedlhelper.kotlin.module
 import io.ktor.http.*
-import kotlin.test.*
 import io.ktor.server.testing.*
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class ApplicationTest {
     @Test
@@ -11,7 +12,6 @@ class ApplicationTest {
         withTestApplication({ module(testing = true) }) {
             handleRequest(HttpMethod.Get, "/").apply {
                 assertEquals(HttpStatusCode.OK, response.status())
-                assertEquals("HELLO WORLD!", response.content)
             }
         }
     }
