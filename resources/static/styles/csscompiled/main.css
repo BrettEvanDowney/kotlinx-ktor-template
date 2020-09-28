@@ -511,6 +511,11 @@ html {
   .favourites-page .favourite-items .video-column-wrapper.flexbox .video-column-flexbox-item {
     padding-top: unset;
   }
+  .favourites-page p:last-child {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 1em;
+  }
 }
 .multi-page-wrapper {
   justify-content: center;
@@ -624,6 +629,7 @@ html {
   word-wrap: anywhere;
   color: black;
   padding-top: 1em;
+  padding-bottom: 1em;
 }
 .video-column-wrapper .video-column-divider {
   margin: 0.35em 0;
@@ -634,6 +640,7 @@ html {
   background: white;
   border-radius: 0.5em;
   transition: 0.2s;
+  height: 100%;
 }
 .video-column-wrapper .video-column .video-column-header {
   width: 100%;

@@ -6,6 +6,7 @@
   word-wrap: anywhere;
   color: $base-dark-dark;
   padding-top: 1em;
+  padding-bottom: 1em;
 
   .video-column-divider {
     margin: .35em 0; /* Space out the Bootstrap <hr> more */
@@ -16,6 +17,7 @@
     background: white;
     border-radius: 0.5em;
     transition: 0.2s;
+    height: 100%;
 
 
     // top image and header
