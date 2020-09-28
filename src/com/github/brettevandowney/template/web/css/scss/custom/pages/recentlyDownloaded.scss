@@ -12,6 +12,11 @@
   border-top-right-radius: 0.5em;
 
 
+  // video card
+  .video-column-flexbox-item {
+    padding-top: 1em;
+  }
+
   &.rd-grid-container {
     display: grid;
     grid-template-areas: "menu menu menu right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right";
@@ -63,6 +68,12 @@
   }
 
   .recently-downloaded-page {
+
+    // video card
+    .video-column-flexbox-item {
+      padding-top: unset;
+    }
+
     &.rd-grid-container {
       display: unset;
       grid-template-areas: unset;

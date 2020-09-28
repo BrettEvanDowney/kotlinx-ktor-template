@@ -90,6 +90,14 @@
   .featurette {
     padding-bottom: .25em;
   }
+
+  .featurette-flexbox {
+
+    .featurette-flexbox-item {
+      margin-left: .5em;
+      margin-right: .5em;
+    }
+  }
 }
 
 @media only screen and (max-width: 600px) {

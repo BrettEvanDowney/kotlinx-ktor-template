@@ -267,6 +267,11 @@ html {
   .featurette {
     padding-bottom: 0.25em;
   }
+
+  .featurette-flexbox .featurette-flexbox-item {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
 }
 @media only screen and (max-width: 600px) {
   .featurette-divider {
@@ -377,6 +382,9 @@ html {
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
 }
+.recently-downloaded-page .video-column-flexbox-item {
+  padding-top: 1em;
+}
 .recently-downloaded-page.rd-grid-container {
   display: grid;
   grid-template-areas: "menu menu menu right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right" "main main main right right right";
@@ -423,6 +431,9 @@ html {
     margin-left: 0.25em;
   }
 
+  .recently-downloaded-page .video-column-flexbox-item {
+    padding-top: unset;
+  }
   .recently-downloaded-page.rd-grid-container {
     display: unset;
     grid-template-areas: unset;
@@ -474,6 +485,7 @@ html {
 }
 .favourites-page .favourite-items .video-column-wrapper.flexbox .video-column-flexbox-item {
   flex-grow: 0;
+  padding-top: 1em;
   padding-left: 0.75em;
   padding-right: 0.75em;
   width: 45vw;
@@ -494,6 +506,10 @@ html {
 
   .video-column-flexbox-item {
     width: unset !important;
+  }
+
+  .favourites-page .favourite-items .video-column-wrapper.flexbox .video-column-flexbox-item {
+    padding-top: unset;
   }
 }
 .multi-page-wrapper {
@@ -607,6 +623,7 @@ html {
 .video-column-wrapper {
   word-wrap: anywhere;
   color: black;
+  padding-top: 1em;
 }
 .video-column-wrapper .video-column-divider {
   margin: 0.35em 0;

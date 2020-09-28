@@ -1,5 +1,4 @@
 
-
 .favourites-page {
   text-align: center;
   background-color: #f8f9fa;
@@ -25,6 +24,7 @@
 
       .video-column-flexbox-item {
         flex-grow: 0; // make all items equal size and not expand
+        padding-top: 1em;
         padding-left: .75em;
         padding-right: .75em;
         width: 45vw;
@@ -52,5 +52,15 @@
 
   .video-column-flexbox-item {
     width: unset !important;
+  }
+
+  .favourites-page {
+    .favourite-items {
+      .video-column-wrapper.flexbox {
+        .video-column-flexbox-item {
+          padding-top: unset; // remove top padding
+        }
+      }
+    }
   }
 }
