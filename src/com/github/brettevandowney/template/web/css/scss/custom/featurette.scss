@@ -1,0 +1,99 @@
+@import "../color/colors";
+
+
+/* Featurettes
+------------------------- */
+
+.featurette {
+  word-wrap: anywhere;
+  color: $base-dark-dark;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  background: white;
+  border-radius: 0.5em;
+  transition: 1.2s;
+  height: 80%;
+
+  &:hover {
+    transform: scale(1.07);
+  }
+
+
+  .featurette-heading {
+    margin-top: 0.35em;
+    transition: 1.2s;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    .text-muted:hover {
+      color: white;
+    }
+  }
+
+  .featurette-image {
+    transition: 2.2s;
+    background: url(/static/background.jpg) no-repeat center center;
+    background-size: cover;
+
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+
+  p {
+    transition: 1.2s;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
+
+
+.featurette-flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .featurette-flexbox-item {
+    width: 31em;
+    flex-grow: 1;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
+}
+
+.featurette-divider {
+  margin: 2em 0; /* Space out the Bootstrap <hr> more */
+}
+
+// Responsive CSS
+@media (min-width: 40em) {
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+// Small devices
+@media only screen and (max-width: 1200px) {
+  .featurette-flexbox {
+    .featurette-flexbox-item {
+      width: unset;
+      height: 100%;
+    }
+  }
+
+  .featurette {
+    padding-bottom: .25em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .featurette-divider {
+    margin: 1em 0;
+  }
+}

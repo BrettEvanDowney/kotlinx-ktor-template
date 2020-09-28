@@ -1,0 +1,301 @@
+@import "color/colors";
+
+$nav-background-color: #000000ba;
+
+
+/* Styling for header elements */
+@mixin header-element-styling {
+  @include color($brightness: "dark", $type-in: "color");
+  text-decoration: none;
+}
+
+/* main body SCSS (floating header and video header) */
+body.main-body {
+  @include color($brightness: "light", $type-in: "color");
+  background: linear-gradient(to top, transparent, #171515cf);;
+  scrollbar-color: rgba(15, 12, 12, 0.4) rgba(0, 0, 0, 0.14);
+  scrollbar-width: thin;
+  /* Header */
+  & header {
+    .inner-header {
+      pointer-events: none;
+      user-select: none;
+      position: fixed;
+      z-index: 500;
+      top: 0;
+      width: 100%;
+      padding: 0 1em 0 1em;
+      background: transparent;
+      transition: transform 0.6s;
+
+      .inner-head-wrapper {
+        $inner-head: &;
+        pointer-events: all;
+        position: static;
+        float: left;
+        transition: .6s;
+        padding-top: 1em;
+        padding-right: 1em;
+
+        .header-image {
+          text-shadow: -0.045em 0.045em rgba(4, 4, 4, 0.23);
+          -webkit-text-stroke-width: 2px;
+          -webkit-text-stroke-color: black;
+          color: white;
+        }
+
+        /* The sidenav dropdown element wrapper */
+        &.sidenav {
+          padding-top: 0;
+          padding-right: 1em;
+          width: 11em;
+
+          /* Element within the sidenav */
+          .right-push-nav {
+            display: none;
+            position: fixed;
+            width: 12em;
+            height: 100%;
+            background: $nav-background-color;
+            z-index: -1;
+
+            #{$inner-head} {
+              padding-top: 0;
+            }
+
+
+            .padding {
+              height: 4.5em;
+              border-bottom: solid white 0.075em;
+            }
+
+            /* Side panel content */
+            .side-panel-items {
+              overflow-y: scroll;
+              direction: rtl;
+              height: 100%;
+              scrollbar-color: rgba(255, 255, 255, 0.34) rgb(0, 0, 0);
+
+              .side-panel-item {
+                color: white;
+                padding: .25em;
+                align-content: center;
+                text-align: center;
+
+                /* Icons flexbox */
+                .flexbox {
+                  justify-content: center;
+
+                  .side-panel-icon {
+                    margin: 0.25em;
+                    padding: .5em;
+                    border: solid #827b7b57 0.075em;
+
+                    &:hover {
+                      background: dimgray;
+                    }
+                  }
+                }
+
+                &:last-child {
+                  padding-bottom: 5em;
+                }
+              }
+            }
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+
+          i.header-image {
+            transform: scale(1.25);
+
+            &:active {
+              transform: scale(1.0);
+            }
+          }
+
+          /* Set the dropdown content visible on hover */
+          &.dropdown .dropdown-content {
+            display: block;
+          }
+        }
+      }
+
+      .dropdown-right-element {
+        float: right;
+      }
+
+      /* Navigation dropdown menu */
+      .dropdown {
+        .dropdown-content {
+          color: $base-light-light;
+          display: none; /* Set to none initially to hide */
+          cursor: default;
+          position: absolute;
+          width: 80%;
+          max-height: 65vh;
+          background: rgb(162, 220, 231);
+          background: $background-gradient-header;
+          overflow-y: scroll;
+          overflow-x: hidden;
+          direction: rtl;
+          margin-top: .35em; /* Further dropdown content from expanded button */
+          border-radius: 2.5%;
+          left: 0;
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          z-index: 1;
+
+          .dropdown-header {
+            border-bottom: white;
+            border-bottom-style: solid;
+            border-bottom-width: .075em;
+            padding: 0.5em 0 0 0;
+
+            p {
+              color: $base-light-light;
+              text-align: center;
+              font-size: 2.5em;
+
+              /* Align image inside dropdown header */
+              i {
+                transform: translate(-25%, 0);
+              }
+            }
+          }
+
+          .flexbox {
+            background: $background-gradient-header-inner;
+            justify-content: space-around;
+            align-items: center;
+            flex-flow: row wrap;
+
+            .dropdown-column {
+              white-space: nowrap; /* Force titles to use full length */
+              padding: 2.5em;
+              flex: 1 1 0; /* Equal size flex items */
+              .column-item {
+                color: $base-light-light;
+                padding: .25em;
+                display: block;
+                text-align: left;
+
+                a {
+                  color: $base-light-light;
+                  transition: .6s;
+                  text-decoration: none;
+
+                  &:hover {
+                    color: #a2dce7;
+                    font-size: 150%;
+                    cursor: pointer;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        button.dropdown-button {
+          @include header-element-styling;
+          border: none;
+          outline: none;
+
+          background-color: inherit;
+          font: inherit;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  /* Header scroll up effect */
+  &.scroll-up header .inner-header {
+    transform: none;
+  }
+
+  /* Header scroll down effect */
+  &.scroll-down header .inner-header {
+    transform: translate3d(0, -100%, 0);
+  }
+
+
+  &.scroll-down {
+
+    .rd-grid-video {
+      top: 0 !important;
+    }
+  }
+}
+
+/* Account login dialog settings */
+
+.ui-widget-overlay {
+  background: #262626d4 !important; /* Override default settings */
+  opacity: 1 !important;
+}
+
+.ui-dialog.ui-widget.ui-widget-content {
+  width: auto !important; /* Override width of dialog box */
+  background-color: #f5f5f5;
+
+  .ui-dialog-buttonpane.ui-widget-content {
+    background-color: transparent;
+  }
+}
+
+/* Account pop-up */
+.account-popup.ui-dialog-content.ui-widget-content {
+  height: 80vh !important; /* Override height of dialog box to automatically fix content */
+  text-align: center;
+  overflow-y: scroll;
+
+  .flexbox {
+
+    .account-item {
+      flex-grow: 1;
+      flex-basis: 0;
+      .flexbox {
+
+      }
+    }
+  }
+}
+
+// Small devices
+@media only screen and (max-width: 575px) {
+  /* main body SCSS (floating header and video header) */
+  body.main-body {
+
+    /* Header */
+    & header {
+      .inner-header {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+
+        .inner-head-wrapper {
+          padding-right: .4em;
+
+
+
+          /* The sidenav dropdown element wrapper */
+          &.sidenav {
+            width: unset;
+
+            /* Element within the sidenav */
+            .right-push-nav {
+              width: unset;
+            }
+          }
+
+        }
+
+        .dropdown-right-element {
+          float: left;
+        }
+      }
+    }
+  }
+}

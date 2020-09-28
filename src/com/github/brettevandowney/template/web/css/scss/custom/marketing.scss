@@ -1,0 +1,51 @@
+@import "../color/colors";
+
+/* Marketing content
+-------------------------------------------------- */
+.container.marketing {
+  user-select: none;
+  max-width: 80em;
+  color: $base-light-light;
+
+
+  .col-lg-4 i {
+    -webkit-text-stroke-width: 0.0275em;
+    -webkit-text-stroke-color: black;
+    color: white;
+    padding-top: 1em;
+  }
+
+  .btn-primary {
+    transition: .6s;
+
+    &:hover {
+      transform: scale(1.25);
+    }
+
+    &:active {
+      transform: scale(1.15);
+    }
+
+    &.clicked {
+      background-color: white;
+      color: black;
+      border-color: white;
+    }
+  }
+}
+
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.marketing h2 {
+  font-weight: 400;
+}
+
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}

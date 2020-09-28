@@ -303,33 +303,47 @@ var NewsHandler = (function (_super) {
 var RecentlyDownloadedLoader = (function (_super) {
     __extends(RecentlyDownloadedLoader, _super);
     function RecentlyDownloadedLoader() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this_1 = _super !== null && _super.apply(this, arguments) || this;
+        _this_1.ANIMATION = "drop";
+        _this_1.ANIMATION_TIME = 300;
+        return _this_1;
     }
     RecentlyDownloadedLoader.prototype.load = function () {
+        this.setVideoInformation();
+        this.setBookmarkButton();
+    };
+    RecentlyDownloadedLoader.prototype.setVideoInformation = function () {
         var videoInformationBox = $(".video-information-box");
         videoInformationBox.hide();
         new MultiPage("recently-downloaded");
         $(".multi-page-wrapper-recently-downloaded .multi-page .row.video-column.video-button").click(function () {
+            console.log("doing one");
             var videoId = $(this).attr("additionalAttr");
             var videoInformationBox = $(".video-information-box");
             $(videoInformationBox).find(".video-information-header").empty().append($(this).find(".video-column-header").clone(true));
-            $(videoInformationBox).find(".video-information-video").attr("src", "/static/banner" + Math.floor(Math.random() * (12 + 1)) + ".mp4");
+            $(videoInformationBox).find(".video-information-video").attr("src", "/static/banner" + Math.floor(Math.random() * (4 + 1)) + ".mp4");
             videoInformationBox.show();
         });
+    };
+    RecentlyDownloadedLoader.prototype.setBookmarkButton = function () {
+        var _this = this;
         var n = 0;
         $(".row.video-column.video-button .video-column-bookmark i").each(function () {
             $(this).addClass("video-column-bookmark-icon-" + n).attr("value", n++);
-        }).click(function () {
+        }).click(function (e) {
             var videoId = $(this).attr("additionalAttr");
             var value = $(this).attr("value");
             var isToggled = $(this).hasClass("video-column-bookmark-clicked");
             if (isToggled) {
-                $(".favourite-items .video-column-wrapper.flexbox .video-column-bookmark-" + value).remove();
+                $(".favourite-items .video-column-wrapper.flexbox .video-column-bookmark-" + value).effect(_this.ANIMATION, {}, _this.ANIMATION_TIME, function () {
+                    $(this).remove();
+                });
             }
             else {
-                $(".video-column-wrapper.flexbox").append($(this).closest("div.video-column-flexbox-item").clone(true).addClass("video-column-bookmark-" + value));
+                $(".favourite-items .video-column-wrapper.flexbox").append($(this).closest("div.video-column-flexbox-item").clone(true).addClass("video-column-bookmark-" + value));
             }
             $(".video-column-bookmark-icon-" + value).toggleClass("video-column-bookmark-clicked");
+            e.stopPropagation();
         });
     };
     return RecentlyDownloadedLoader;

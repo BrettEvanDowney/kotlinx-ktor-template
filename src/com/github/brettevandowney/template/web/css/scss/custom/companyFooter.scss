@@ -1,0 +1,36 @@
+
+.company-footer {
+
+  p {
+
+    &:not(.float-right) {
+      padding-top: 1em;
+    }
+
+    a {
+      float: right;
+      margin-right: 1em;
+    }
+  }
+}
+
+// Small devices
+@media only screen and (max-width: 1200px) {
+  .company-footer {
+    p {
+      a {
+        font-size: 0.75em;
+      }
+    }
+  }
+}
+
+// Small devices
+@media only screen and (max-width: 600px) {
+  .company-footer {
+    // disable padding as it it too small for it
+    p:not(.float-right) {
+      padding-top: unset;
+    }
+  }
+}

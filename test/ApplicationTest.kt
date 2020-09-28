@@ -1,6 +1,6 @@
-package com.github.brettevandowney.youtubedlhelper
+package com.github.brettevandowney.template
 
-import com.github.brettevandowney.youtubedlhelper.kotlin.module
+import com.github.brettevandowney.template.kotlin.module
 import io.ktor.http.*
 import io.ktor.server.testing.*
 import kotlin.test.Test
