@@ -292,6 +292,16 @@ body.main-body {
 
         }
 
+        .dropdown .dropdown-content {
+          margin-top: 0.125em; // since buttons are smaller, make gap smaller as well
+
+          .dropdown-header {
+            p {
+              font-size: 1.5em;
+            }
+          }
+        }
+
         .dropdown-right-element {
           float: left;
         }

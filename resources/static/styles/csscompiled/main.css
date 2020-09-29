@@ -9,6 +9,8 @@
   background-color: #007bffd1;
   pointer-events: none;
   user-select: none;
+  overflow-y: hidden;
+  padding-bottom: 0.25em;
 }
 .inner-footer .inner-footer-wrapper {
   padding-left: 1em;
@@ -46,9 +48,9 @@
 
 @media only screen and (max-width: 1200px) {
   .inner-footer {
-    display: flex;
-    justify-content: space-evenly;
-    height: 2.5em;
+    position: static;
+    height: 100%;
+    padding-bottom: 0.15em;
   }
   .inner-footer .inner-footer-wrapper.inner-footer-right {
     float: left;
@@ -82,13 +84,13 @@ html, body {
   height: 100%;
   font-size: 150%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background: url(/static/background.jpg) no-repeat center center fixed;
   scrollbar-color: rgba(255, 255, 255, 0.4) black;
-  background-size: cover;
 }
 
 html {
   overflow-x: hidden;
+  background: url(/static/background.jpg) no-repeat center center fixed;
+  background-size: cover;
 }
 
 .disable-scrolling {
@@ -197,13 +199,16 @@ html {
 /* Featurettes
 ------------------------- */
 .featurette {
-  word-wrap: anywhere;
+  overflow-wrap: anywhere;
+  word-break: break-word;
   color: black;
   box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
   background: white;
   border-radius: 0.5em;
   transition: 1.2s;
   height: 80%;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
 }
 .featurette:hover {
   transform: scale(1.07);
@@ -221,12 +226,18 @@ html {
 .featurette .featurette-heading .text-muted:hover {
   color: white;
 }
-.featurette .featurette-image {
+.featurette .featurette-flexbox-image {
+  display: flex;
+  height: 100%;
+  padding: 0.25em;
+}
+.featurette .featurette-flexbox-image .featurette-image {
+  max-width: 100%;
   transition: 2.2s;
-  background: url(/static/background.jpg) no-repeat center center;
+  background: url(/static/background.jpg) no-repeat;
   background-size: cover;
 }
-.featurette .featurette-image:hover {
+.featurette .featurette-flexbox-image .featurette-image:hover {
   filter: brightness(1.2);
 }
 .featurette p {
@@ -240,10 +251,10 @@ html {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  width: 100%;
 }
 .featurette-flexbox .featurette-flexbox-item {
-  width: 31em;
-  flex-grow: 1;
+  width: 45%;
   margin-left: 1.5em;
   margin-right: 1.5em;
 }
@@ -260,12 +271,15 @@ html {
 }
 @media only screen and (max-width: 1200px) {
   .featurette-flexbox .featurette-flexbox-item {
-    width: unset;
+    width: 100%;
     height: 100%;
   }
 
   .featurette {
     padding-bottom: 0.25em;
+  }
+  .featurette.flexbox {
+    display: block;
   }
 
   .featurette-flexbox .featurette-flexbox-item {
@@ -428,7 +442,7 @@ html {
 
 @media only screen and (max-width: 1200px) {
   .row.video-column.video-button {
-    margin-left: 0.25em;
+    margin-left: 0.35em;
   }
 
   .recently-downloaded-page .video-column-flexbox-item {
@@ -518,6 +532,7 @@ html {
   }
 }
 .multi-page-wrapper {
+  width: 100%;
   justify-content: center;
 }
 .multi-page-wrapper .multi-page {
@@ -1028,6 +1043,12 @@ body.main-body.scroll-down .rd-grid-video {
   }
   body.main-body header .inner-header .inner-head-wrapper.sidenav .right-push-nav {
     width: unset;
+  }
+  body.main-body header .inner-header .dropdown .dropdown-content {
+    margin-top: 0.125em;
+  }
+  body.main-body header .inner-header .dropdown .dropdown-content .dropdown-header p {
+    font-size: 1.5em;
   }
   body.main-body header .inner-header .dropdown-right-element {
     float: left;

@@ -58,12 +58,13 @@ class FeaturetteTemplate(private val items: ArrayList<FeaturetteItem>) : Templat
      * image beside the featurette.
      */
     private fun DIV.svgFeaturette() {
-        svg("featurette-image") {
-            attributes["width"] = "100%"
-            attributes["height"] = "100%"
-            attributes["preserveaspectratio"] = "xMidYMid slice"
-            attributes["focusable"] = "false"
-            role = "img"
+        div(classes = "featurette-flexbox-image") {
+            svg("featurette-image") {
+                attributes["width"] = "100%"
+                attributes["preserveaspectratio"] = "xMidYMid slice"
+                attributes["focusable"] = "false"
+                role = "img"
+            }
         }
     }
 }
