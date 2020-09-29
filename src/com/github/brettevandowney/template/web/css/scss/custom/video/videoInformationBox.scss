@@ -5,10 +5,13 @@
   display: none; /* Initially no video has been set */
   color: $base-dark-dark;
   background: white;
-  margin: 0.5em;
   box-shadow: 0 1px 6px rgba(32, 33, 36, 0.51);
   border-radius: 0.5em;
   transition: 0.2s;
+
+  span {
+    font-size: .85em;
+  }
 
 
   .video-information-header {

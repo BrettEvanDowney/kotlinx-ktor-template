@@ -64,7 +64,8 @@
 // Small devices
 @media only screen and (max-width: 1200px) {
   .row.video-column.video-button {
-    margin-left: 0.35em;
+    margin-right: 0;
+    margin-left: 1em;
   }
 
   .recently-downloaded-page {
@@ -75,7 +76,7 @@
     }
 
     &.rd-grid-container {
-      display: unset;
+      display: block;
       grid-template-areas: unset;
 
       .rd-grid-information {

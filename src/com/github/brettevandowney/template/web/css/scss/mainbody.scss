@@ -256,8 +256,21 @@ body.main-body {
     .account-item {
       flex-grow: 1;
       flex-basis: 0;
+
       .flexbox {
 
+      }
+    }
+  }
+}
+
+@mixin navigationItemTransition($time) {
+  .flexbox {
+    .dropdown-column {
+      .column-item {
+        a {
+          transition: $time; // make faster for smaller devices
+        }
       }
     }
   }
@@ -279,7 +292,6 @@ body.main-body {
           padding-right: .4em;
 
 
-
           /* The sidenav dropdown element wrapper */
           &.sidenav {
             width: unset;
@@ -293,17 +305,33 @@ body.main-body {
         }
 
         .dropdown .dropdown-content {
-          margin-top: 0.125em; // since buttons are smaller, make gap smaller as well
-
-          .dropdown-header {
-            p {
-              font-size: 1.5em;
-            }
-          }
+          @include navigationItemTransition(.15s);
         }
 
         .dropdown-right-element {
           float: left;
+        }
+      }
+    }
+  }
+}
+
+// Button resize amount
+@media only screen and (max-width: 1200px) {
+  /* main body SCSS (floating header and video header) */
+  body.main-body {
+
+    /* Header */
+    & header {
+      .inner-header {
+        .dropdown .dropdown-content {
+          @include navigationItemTransition(.35s);
+          .dropdown-header {
+            p {
+              font-size: 5.5vw;
+            }
+          }
+          margin-top: 0.125em; // since buttons are smaller, make gap smaller as well
         }
       }
     }

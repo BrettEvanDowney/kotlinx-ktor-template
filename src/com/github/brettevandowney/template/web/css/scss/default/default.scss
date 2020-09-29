@@ -38,3 +38,9 @@ html {
     font-size: 2em !important;
   }
 }
+
+@media only screen and (max-width: 991px) {
+  html {
+    background: #696969de;
+  }
+}

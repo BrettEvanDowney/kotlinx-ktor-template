@@ -107,6 +107,11 @@ html {
     font-size: 2em !important;
   }
 }
+@media only screen and (max-width: 991px) {
+  html {
+    background: #696969de;
+  }
+}
 /* Applies $dark colouring to all child elements and the current element
 -------------------------------------------------- */
 /* Carousel base class */
@@ -442,14 +447,15 @@ html {
 
 @media only screen and (max-width: 1200px) {
   .row.video-column.video-button {
-    margin-left: 0.35em;
+    margin-right: 0;
+    margin-left: 1em;
   }
 
   .recently-downloaded-page .video-column-flexbox-item {
     padding-top: unset;
   }
   .recently-downloaded-page.rd-grid-container {
-    display: unset;
+    display: block;
     grid-template-areas: unset;
   }
   .recently-downloaded-page.rd-grid-container .rd-grid-information {
@@ -560,10 +566,12 @@ html {
   /* Initially no video has been set */
   color: black;
   background: white;
-  margin: 0.5em;
   box-shadow: 0 1px 6px rgba(32, 33, 36, 0.51);
   border-radius: 0.5em;
   transition: 0.2s;
+}
+.video-information-box span {
+  font-size: 0.85em;
 }
 .video-information-box .video-information-header {
   width: 100%;
@@ -621,7 +629,6 @@ html {
 }
 
 .rd-grid-information {
-  margin: 0.5em;
   box-shadow: 0 1px 6px rgba(32, 33, 36, 0.51);
   background: white;
   border-radius: 0.5em;
@@ -1044,14 +1051,26 @@ body.main-body.scroll-down .rd-grid-video {
   body.main-body header .inner-header .inner-head-wrapper.sidenav .right-push-nav {
     width: unset;
   }
-  body.main-body header .inner-header .dropdown .dropdown-content {
-    margin-top: 0.125em;
-  }
-  body.main-body header .inner-header .dropdown .dropdown-content .dropdown-header p {
-    font-size: 1.5em;
+  body.main-body header .inner-header .dropdown .dropdown-content .flexbox .dropdown-column .column-item a {
+    transition: 0.15s;
   }
   body.main-body header .inner-header .dropdown-right-element {
     float: left;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  /* main body SCSS (floating header and video header) */
+  body.main-body {
+    /* Header */
+  }
+  body.main-body header .inner-header .dropdown .dropdown-content {
+    margin-top: 0.125em;
+  }
+  body.main-body header .inner-header .dropdown .dropdown-content .flexbox .dropdown-column .column-item a {
+    transition: 0.35s;
+  }
+  body.main-body header .inner-header .dropdown .dropdown-content .dropdown-header p {
+    font-size: 5.5vw;
   }
 }
 
