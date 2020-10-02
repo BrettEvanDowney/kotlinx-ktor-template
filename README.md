@@ -15,7 +15,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This template presents a scalable web server which can be deployed in less than five minutes. Each feature presented on the web page has been implemented as a seperate module using Kotlin/kotlinx.html as the primary template rendering engine. Additionally, this template is completely responsive, supporting devices of all sizes. This project is currently deployed as Heroku project hosted at [brettdowney.ca](www.template.brettdowney.ca).
+This template presents a scalable web server which can be deployed in less than five minutes. Each feature presented on the web page has been implemented as a seperate module using Kotlin/kotlinx.html as the primary template rendering engine. Additionally, this template is completely responsive, supporting devices of all sizes. This project is currently deployed as Heroku project hosted at [brettdowney.ca](http://www.template.brettdowney.ca).
 
 ### Built With
 
