@@ -41,8 +41,11 @@ This template presents a scalable web server which can be deployed in less than 
 ### Deploying
 
 Deploy the project to any Heroku application. A custom Gradle build has been included within ```gradle.build``` and will automatically deploy this project to a Heroku application.
+
 ```heroku push git master```
+
 ```heroku ps:scale web=1```
+
 ```heroku open```
 
 <!-- CONTACT -->
